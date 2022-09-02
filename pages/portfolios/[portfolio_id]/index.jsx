@@ -1,32 +1,29 @@
-import Head from 'next/head'
-import bg from 'public/assets/images/portfolio/bg-inner.jpg'
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-import portfolioData from 'data/portfolio.data'
-import Link from 'next/link'
+import Head from 'next/head';
+import bg from 'public/assets/images/portfolio/bg-inner.jpg';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import portfolioData from 'data/portfolio.data';
+import Link from 'next/link';
 const PortfolioPage = () => {
-	const router = useRouter()
-	const [loading, setLoading] = useState(true)
-	const [portfolio, setPortfolio] = useState({})
+	const router = useRouter();
+	const [loading, setLoading] = useState(true);
+	const [portfolio, setPortfolio] = useState({});
 
 	const getDate = async (id) => {
-		const res = await portfolioData.find((item) => item.id == id)
-		console.log('res', id, res)
-		setPortfolio(res)
-		setLoading(false)
-	}
+		const res = portfolioData.find((item) => item.id == id);
+		console.log('res', id, res);
+		setPortfolio(res);
+		setLoading(false);
+	};
 	useEffect(() => {
-		if (router) {
-			getDate(router.query.portfolio_id)
+		if (router.isReady) {
+			getDate(router.query.portfolio_id);
 		}
-	}, [router])
+	}, [router.isReady]);
 
-	console.log(router.query.portfolio_id)
-	console.log('portfolio', portfolio)
 	if (loading && !portfolio) {
-		return null
+		return null;
 	}
-	console.log('portfolio', portfolio)
 	return (
 		<>
 			<div>
@@ -34,7 +31,8 @@ const PortfolioPage = () => {
 					style={{
 						backgroundImage: `url(${bg.src})`,
 					}}
-					className='relative table w-full py-32 lg:py-40  bg-no-repeat bg-center'>
+					className='relative table w-full py-32 lg:py-40  bg-no-repeat bg-center'
+				>
 					<div className='absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black' />
 					<div className='container'>
 						<div className='grid grid-cols-1 pb-8 text-center mt-10'>
@@ -68,7 +66,8 @@ const PortfolioPage = () => {
 							</li>
 							<li
 								className='inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out text-white'
-								aria-current='page'>
+								aria-current='page'
+							>
 								Detail
 							</li>
 						</ul>
@@ -81,7 +80,8 @@ const PortfolioPage = () => {
 							className='w-full h-auto'
 							viewBox='0 0 2880 48'
 							fill='none'
-							xmlns='http://www.w3.org/2000/svg'>
+							xmlns='http://www.w3.org/2000/svg'
+						>
 							<path
 								d='M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z'
 								fill='currentColor'
@@ -190,7 +190,8 @@ const PortfolioPage = () => {
 							<div className='mt-6'>
 								<a
 									href='contact-one.html'
-									className='btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-full'>
+									className='btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-full'
+								>
 									<i className='uil uil-phone' /> Contact us
 								</a>
 							</div>
@@ -201,6 +202,6 @@ const PortfolioPage = () => {
 				</section>
 			</div>
 		</>
-	)
-}
-export default PortfolioPage
+	);
+};
+export default PortfolioPage;
