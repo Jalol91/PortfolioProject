@@ -1,6 +1,32 @@
-import Head from 'next/head';
-import bg from 'public/assets/images/portfolio/bg-inner.jpg';
+import Head from 'next/head'
+import bg from 'public/assets/images/portfolio/bg-inner.jpg'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import portfolioData from 'data/portfolio.data'
+import Link from 'next/link'
 const PortfolioPage = () => {
+	const router = useRouter()
+	const [loading, setLoading] = useState(true)
+	const [portfolio, setPortfolio] = useState({})
+
+	const getDate = async (id) => {
+		const res = await portfolioData.find((item) => item.id == id)
+		console.log('res', id, res)
+		setPortfolio(res)
+		setLoading(false)
+	}
+	useEffect(() => {
+		if (router) {
+			getDate(router.query.portfolio_id)
+		}
+	}, [router])
+
+	console.log(router.query.portfolio_id)
+	console.log('portfolio', portfolio)
+	if (loading && !portfolio) {
+		return null
+	}
+	console.log('portfolio', portfolio)
 	return (
 		<>
 			<div>
@@ -8,20 +34,20 @@ const PortfolioPage = () => {
 					style={{
 						backgroundImage: `url(${bg.src})`,
 					}}
-					className='relative table w-full py-32 lg:py-40  bg-no-repeat bg-center'
-				>
+					className='relative table w-full py-32 lg:py-40  bg-no-repeat bg-center'>
 					<div className='absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black' />
 					<div className='container'>
 						<div className='grid grid-cols-1 pb-8 text-center mt-10'>
 							<h3 className='mb-3 text-3xl leading-normal font-medium text-white'>
-								New Trends in SEO
+								{portfolio.category}
 							</h3>
 							<ul className='list-none'>
 								<li className='inline font-semibold text-white/60 mr-2'>
-									<span className='text-white'>Client :</span> Calvin Carlo
+									<span className='text-white'>Client :</span>{' '}
+									{portfolio.client}
 								</li>
 								<li className='inline font-semibold text-white/60'>
-									<span className='text-white'>Date :</span> 23th May, 2022
+									<span className='text-white'>Date :</span> {portfolio.date}
 								</li>
 							</ul>
 						</div>
@@ -31,15 +57,18 @@ const PortfolioPage = () => {
 					<div className='absolute text-center z-10 bottom-5 right-0 left-0 mx-3'>
 						<ul className='breadcrumb tracking-[0.5px] breadcrumb-light mb-0 inline-block'>
 							<li className='inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white'>
-								<a href='index.html'>Techwind</a>
+								<Link href={'/'}>
+									<a>Techwind</a>
+								</Link>
 							</li>
 							<li className='inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white'>
-								<a href='#'>Portfolio</a>
+								<Link href={'/portfolios'}>
+									<a>Portfolio</a>
+								</Link>
 							</li>
 							<li
 								className='inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out text-white'
-								aria-current='page'
-							>
+								aria-current='page'>
 								Detail
 							</li>
 						</ul>
@@ -52,8 +81,7 @@ const PortfolioPage = () => {
 							className='w-full h-auto'
 							viewBox='0 0 2880 48'
 							fill='none'
-							xmlns='http://www.w3.org/2000/svg'
-						>
+							xmlns='http://www.w3.org/2000/svg'>
 							<path
 								d='M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z'
 								fill='currentColor'
@@ -68,21 +96,9 @@ const PortfolioPage = () => {
 						<div className='grid md:grid-cols-12 grid-cols-1 gap-[30px]'>
 							<div className='lg:col-span-5 md:col-span-6'>
 								<div className='grid grid-cols-1 gap-[30px]'>
-									<img
-										src='assets/images/portfolio/01.jpg'
-										className='rounded-md'
-										alt=''
-									/>
-									<img
-										src='assets/images/portfolio/02.jpg'
-										className='rounded-md'
-										alt=''
-									/>
-									<img
-										src='assets/images/portfolio/03.jpg'
-										className='rounded-md'
-										alt=''
-									/>
+									{portfolio.images?.map((item, index) => (
+										<img key={index} src={item} className='rounded-md' alt='' />
+									))}
 								</div>
 								{/*end grid*/}
 							</div>
@@ -174,8 +190,7 @@ const PortfolioPage = () => {
 							<div className='mt-6'>
 								<a
 									href='contact-one.html'
-									className='btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-full'
-								>
+									className='btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-full'>
 									<i className='uil uil-phone' /> Contact us
 								</a>
 							</div>
@@ -186,6 +201,6 @@ const PortfolioPage = () => {
 				</section>
 			</div>
 		</>
-	);
-};
-export default PortfolioPage;
+	)
+}
+export default PortfolioPage
