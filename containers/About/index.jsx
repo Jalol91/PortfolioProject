@@ -3,24 +3,12 @@ const About = () => {
 		<div className='container'>
 			<div className='grid md:grid-cols-12 grid-cols-1 items-center gap-[30px]'>
 				<div className='lg:col-span-5 md:col-span-6'>
-					<div className='relative'>
+					<div className=''>
 						<img
 							src='assets/images/personal/hero.jpg'
 							className='rounded-full'
 							alt=''
 						/>
-						<div className='absolute bottom-2/4 translate-y-2/4 right-0 left-0 text-center'>
-							<a
-								href='#!'
-								data-type='youtube'
-								data-id='yba7hPeTSjk'
-								className='lightbox h-20 w-20 rounded-full shadow-lg dark:shadow-gray-800 inline-flex items-center justify-center bg-white dark:bg-slate-900 text-indigo-600'>
-								<i className='mdi mdi-play inline-flex items-center justify-center text-2xl' />
-							</a>
-						</div>
-						<div className='absolute top-0 left-0 -z-1'>
-							<img src='assets/images/illustrator/dots.svg' alt='' />
-						</div>
 					</div>
 				</div>
 				<div className='lg:col-span-7 md:col-span-6 mt-8 md:mt-0'>
@@ -77,7 +65,7 @@ const About = () => {
 			</div>
 			{/*grid*/}
 		</div>
-	)
-}
+	);
+};
 
-export default About
+export default About;

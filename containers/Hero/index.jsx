@@ -28,7 +28,8 @@ const Hero = () => {
 										<div className='mt-4'>
 											<a
 												href='#portfolio'
-												className='btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md'>
+												className='btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md'
+											>
 												Hire me
 											</a>
 										</div>
@@ -80,7 +81,8 @@ const Hero = () => {
 						className='w-full h-auto'
 						viewBox='0 0 2880 48'
 						fill='none'
-						xmlns='http://www.w3.org/2000/svg'>
+						xmlns='http://www.w3.org/2000/svg'
+					>
 						<path
 							d='M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z'
 							fill='currentColor'
@@ -89,6 +91,6 @@ const Hero = () => {
 				</div>
 			</div>
 		</>
-	)
-}
-export default Hero
+	);
+};
+export default Hero;

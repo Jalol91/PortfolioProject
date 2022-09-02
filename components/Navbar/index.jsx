@@ -1,5 +1,10 @@
-import Link from 'next/link'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import LogoDark from 'public/assets/images/logo-dark.png';
+import LogoLight from 'public/assets/images/logo-light.png';
+import Image from 'next/image';
 const Navbar = () => {
+	const router = useRouter();
 	const navbarLinks = [
 		{
 			title: 'Home',
@@ -17,21 +22,16 @@ const Navbar = () => {
 			title: 'Contacts',
 			url: '/contacts',
 		},
-	]
+	];
+
 	return (
 		<nav id='topnav' className='defaultscroll is-sticky'>
 			<div className='container'>
-				{/* Logo container*/}
 				<Link href={'/'}>
 					<a className='logo pl-0'>
-						<img
-							src='assets/images/logo-dark.png'
-							className='inline-block dark:hidden'
-							alt=''
-						/>
-						<img
-							src='assets/images/logo-light.png'
-							className='hidden dark:inline-block'
+						<Image
+							src={router.asPath === '/' ? LogoDark : LogoLight}
+							className='inline-block '
 							alt=''
 						/>
 					</a>
@@ -39,20 +39,21 @@ const Navbar = () => {
 				{/* End Logo container*/}
 				<div className='menu-extras'>
 					<div className='menu-item'>
-						{/* Mobile menu toggle*/}
-						<a className='navbar-toggle' id='isToggle' onclick='toggleMenu()'>
+						<a className='navbar-toggle' id='isToggle' onClick='toggleMenu()'>
 							<div className='lines'>
 								<span />
 								<span />
 								<span />
 							</div>
 						</a>
-						{/* End mobile menu toggle*/}
 					</div>
 				</div>
 				<div id='navigation'>
-					{/* Navigation Menu*/}
-					<ul className='navigation-menu'>
+					<ul
+						className={`navigation-menu ${
+							router.asPath !== '/' ? 'nav-light' : ''
+						}`}
+					>
 						{navbarLinks.map((item, index) => (
 							<li key={index}>
 								<Link href={item.url}>
@@ -61,13 +62,10 @@ const Navbar = () => {
 							</li>
 						))}
 					</ul>
-					{/*end navigation menu*/}
 				</div>
-				{/*end navigation*/}
 			</div>
-			{/*end container*/}
 		</nav>
-	)
-}
+	);
+};
 
-export default Navbar
+export default Navbar;
