@@ -11,12 +11,12 @@ const Navbar = () => {
 			url: '/',
 		},
 		{
-			title: 'Portfolio',
+			title: 'Portfolios',
 			url: '/portfolios',
 		},
 		{
-			title: 'Blogs',
-			url: '/blogs',
+			title: 'Certificates',
+			url: '/certificates',
 		},
 		{
 			title: 'Contacts',

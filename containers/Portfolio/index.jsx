@@ -1,6 +1,6 @@
-import PortfolioCard from 'components/PortfolioCard'
-import TitleMain from '../../components/TitleMain'
-import data from '../../data/portfolio.data'
+import PortfolioCard from 'components/PortfolioCard';
+import TitleMain from '../../components/TitleMain';
+import data from '../../data/portfolio.data';
 
 const Portfolio = () => {
 	return (
@@ -18,10 +18,8 @@ const Portfolio = () => {
 					<PortfolioCard key={index} item={item} />
 				))}
 			</div>
-
-			{/*end grid*/}
 		</div>
-	)
-}
+	);
+};
 
-export default Portfolio
+export default Portfolio;

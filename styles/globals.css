@@ -1874,9 +1874,6 @@ video {
 		var(--tw-gradient-stops)
 	) !important;
 }
-/* .bg-\[url\(\'\.\.\/\.\.\/assets\/images\/map\.svg\'\)\] {
-	background-image: url('../public/assets/images/map.svg') !important;
-} */
 .bg-gradient-to-t {
 	background-image: -webkit-gradient(
 		linear,
@@ -4451,7 +4448,7 @@ h6 {
 	--tw-text-opacity: 1 !important;
 	color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
 }
-.container-creative li::after {
+/* .container-creative li::after {
 	position: absolute;
 	right: 0;
 	left: 0;
@@ -4468,7 +4465,7 @@ h6 {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	--tw-content: '';
 	content: var(--tw-content);
-}
+} */
 .container-creative li.active,
 .container-creative li:hover {
 	--tw-text-opacity: 1 !important;
