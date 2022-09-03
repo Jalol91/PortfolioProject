@@ -1,28 +1,28 @@
-import Head from 'next/head';
-import bg from 'public/assets/images/portfolio/bg-inner.jpg';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import portfolioData from 'data/portfolio.data';
-import Link from 'next/link';
+import Head from 'next/head'
+import bg from 'public/assets/images/portfolio/bg-inner.jpg'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import portfolioData from 'data/portfolio.data'
+import Link from 'next/link'
 const PortfolioPage = () => {
-	const router = useRouter();
-	const [loading, setLoading] = useState(true);
-	const [portfolio, setPortfolio] = useState({});
+	const router = useRouter()
+	const [loading, setLoading] = useState(true)
+	const [portfolio, setPortfolio] = useState({})
 
 	const getDate = async (id) => {
-		const res = portfolioData.find((item) => item.id == id);
-		console.log('res', id, res);
-		setPortfolio(res);
-		setLoading(false);
-	};
+		const res = portfolioData.find((item) => item.id == id)
+		console.log('res', id, res)
+		setPortfolio(res)
+		setLoading(false)
+	}
 	useEffect(() => {
 		if (router.isReady) {
-			getDate(router.query.portfolio_id);
+			getDate(router.query.portfolio_id)
 		}
-	}, [router.isReady]);
+	}, [router.isReady])
 
 	if (loading && !portfolio) {
-		return null;
+		return null
 	}
 	return (
 		<>
@@ -31,8 +31,7 @@ const PortfolioPage = () => {
 					style={{
 						backgroundImage: `url(${bg.src})`,
 					}}
-					className='relative table w-full py-32 lg:py-40  bg-no-repeat bg-center'
-				>
+					className='relative table w-full py-32 lg:py-40  bg-no-repeat bg-center'>
 					<div className='absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black' />
 					<div className='container'>
 						<div className='grid grid-cols-1 pb-8 text-center mt-10'>
@@ -66,8 +65,7 @@ const PortfolioPage = () => {
 							</li>
 							<li
 								className='inline breadcrumb-item uppercase text-[13px] font-bold duration-500 ease-in-out text-white'
-								aria-current='page'
-							>
+								aria-current='page'>
 								Detail
 							</li>
 						</ul>
@@ -80,8 +78,7 @@ const PortfolioPage = () => {
 							className='w-full h-auto'
 							viewBox='0 0 2880 48'
 							fill='none'
-							xmlns='http://www.w3.org/2000/svg'
-						>
+							xmlns='http://www.w3.org/2000/svg'>
 							<path
 								d='M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z'
 								fill='currentColor'
@@ -97,7 +94,12 @@ const PortfolioPage = () => {
 							<div className='lg:col-span-5 md:col-span-6'>
 								<div className='grid grid-cols-1 gap-[30px]'>
 									{portfolio.images?.map((item, index) => (
-										<img key={index} src={item} className='rounded-md' alt='' />
+										<img
+											key={index}
+											src={`/${item}`}
+											className='rounded-md'
+											alt=''
+										/>
 									))}
 								</div>
 								{/*end grid*/}
@@ -110,21 +112,10 @@ const PortfolioPage = () => {
 											<div className='work-details'>
 												<h4 className='text-xl font-semibold mb-3 border-b border-gray-100 dark:border-gray-700 pb-3'>
 													Project Name :
+													<span className='ml-2'>{portfolio.title}</span>
 												</h4>
 												<p className='text-slate-400'>
-													Lorem ipsum dolor sit amet consectetur adipisicing
-													elit. Suscipit totam atque dignissimos porro,
-													exercitationem, neque alias ea aliquid quibusdam
-													voluptates impedit maxime aut asperiores consequatur
-													iste. Corporis fuga ducimus dignissimos. Lorem ipsum
-													dolor sit amet, consectetur adipisicing elit. Adipisci
-													non dolorem consequatur vitae hic.
-												</p>
-												<p className='text-slate-400 mt-2'>
-													Suscipit totam atque dignissimos porro,
-													exercitationem, neque alias ea aliquid quibusdam
-													voluptates impedit maxime aut asperiores consequatur
-													iste. Corporis fuga ducimus dignissimos.
+													{portfolio.description}
 												</p>
 											</div>
 										</div>
@@ -139,31 +130,25 @@ const PortfolioPage = () => {
 														Client :
 													</dt>
 													<dd className='md:col-span-8 col-span-7 mt-2 text-slate-400'>
-														Calvin Carlo
+														{portfolio.client}
 													</dd>
 													<dt className='md:col-span-4 col-span-5 mt-2'>
 														Category :
 													</dt>
 													<dd className='md:col-span-8 col-span-7 mt-2 text-slate-400'>
-														Web Design
+														{portfolio.category}
 													</dd>
 													<dt className='md:col-span-4 col-span-5 mt-2'>
 														Date :
 													</dt>
 													<dd className='md:col-span-8 col-span-7 mt-2 text-slate-400'>
-														23rd Sep, 2021
+														{portfolio.date}
 													</dd>
 													<dt className='md:col-span-4 col-span-5 mt-2'>
 														Website :
 													</dt>
 													<dd className='md:col-span-8 col-span-7 mt-2 text-slate-400'>
-														www.yourdomain.com
-													</dd>
-													<dt className='md:col-span-4 col-span-5 mt-2'>
-														Location :
-													</dt>
-													<dd className='md:col-span-8 col-span-7 mt-2 text-slate-400'>
-														3/2/64 Mongus Street, UK
+														{portfolio.website}
 													</dd>
 												</dl>
 											</div>
@@ -190,8 +175,7 @@ const PortfolioPage = () => {
 							<div className='mt-6'>
 								<a
 									href='contact-one.html'
-									className='btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-full'
-								>
+									className='btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-full'>
 									<i className='uil uil-phone' /> Contact us
 								</a>
 							</div>
@@ -202,6 +186,6 @@ const PortfolioPage = () => {
 				</section>
 			</div>
 		</>
-	);
-};
-export default PortfolioPage;
+	)
+}
+export default PortfolioPage
