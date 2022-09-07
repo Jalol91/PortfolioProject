@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from 'next/link'
 const PortfolioCard = ({ item }) => {
 	return (
 		<div className='group  relative  overflow-hidden rounded-md transition-all duration-500'>
@@ -12,8 +12,7 @@ const PortfolioCard = ({ item }) => {
 				<div className='icon absolute z-10 hidden group-hover:block top-4 right-4 transition-all duration-500'>
 					<a
 						href='assets/images/portfolio/1.jpg'
-						className='btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox'
-					>
+						className='btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white btn-icon rounded-full lightbox'>
 						<i className='uil uil-camera' />
 					</a>
 				</div>
@@ -27,7 +26,7 @@ const PortfolioCard = ({ item }) => {
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export default PortfolioCard;
+export default PortfolioCard
