@@ -1,4 +1,23 @@
+import { useState } from 'react'
 const ContactForm = () => {
+	const [value, setValue] = useState({
+		name: '',
+		email: '',
+		subject: '',
+		message: '',
+	})
+
+	const handleChange = (e) => {
+		setValue({
+			...value,
+			[e.target.name]: e.target.value,
+		})
+	}
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		console.log(value)
+	}
+
 	return (
 		<div className='lg:col-span-5 md:col-span-6 mt-8 md:mt-0'>
 			<div className='lg:ml-5'>
@@ -6,12 +25,7 @@ const ContactForm = () => {
 					<h3 className='mb-6 text-2xl leading-normal font-medium'>
 						Get in touch !
 					</h3>
-					<form
-						method='post'
-						name='myForm'
-						id='myForm'
-						onsubmit='return validateForm()'
-					>
+					<form onSubmit={handleSubmit}>
 						<p className='mb-0' id='error-msg' />
 						<div id='simple-msg' />
 						<div className='grid lg:grid-cols-12 lg:gap-6'>
@@ -26,6 +40,8 @@ const ContactForm = () => {
 											className='w-4 h-4 absolute top-3 left-4'
 										/>
 										<input
+											value={value.name}
+											onChange={handleChange}
 											name='name'
 											id='name'
 											type='text'
@@ -46,6 +62,8 @@ const ContactForm = () => {
 											className='w-4 h-4 absolute top-3 left-4'
 										/>
 										<input
+											value={value.email}
+											onChange={handleChange}
 											name='email'
 											id='email'
 											type='email'
@@ -68,6 +86,8 @@ const ContactForm = () => {
 											className='w-4 h-4 absolute top-3 left-4'
 										/>
 										<input
+											value={value.subject}
+											onChange={handleChange}
 											name='subject'
 											id='subject'
 											className='form-input pl-11'
@@ -87,7 +107,9 @@ const ContactForm = () => {
 											className='w-4 h-4 absolute top-3 left-4'
 										/>
 										<textarea
-											name='comments'
+											value={value.message}
+											onChange={handleChange}
+											name='message'
 											id='comments'
 											className='form-input pl-11 h-28'
 											placeholder='Message :'
@@ -101,15 +123,14 @@ const ContactForm = () => {
 							type='submit'
 							id='submit'
 							name='send'
-							className='btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md justify-center flex items-center'
-						>
+							className='btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md justify-center flex items-center'>
 							Send Message
 						</button>
 					</form>
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export default ContactForm;
+export default ContactForm
