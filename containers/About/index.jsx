@@ -39,12 +39,12 @@ const About = () => {
 						<div className='mt-4'>
 							<div className='flex justify-between mb-2'>
 								<span className='text-slate-400'>JavaScript</span>
-								<span className='text-slate-400'>79%</span>
+								<span className='text-slate-400'>90%</span>
 							</div>
 							<div className='w-full bg-gray-100 dark:bg-gray-800 rounded-full h-[6px]'>
 								<div
 									className='bg-indigo-600 h-[6px] rounded-full'
-									style={{ width: '79%' }}
+									style={{ width: '90%' }}
 								/>
 							</div>
 						</div>

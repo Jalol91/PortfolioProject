@@ -29,7 +29,7 @@ const Portfolios = () => {
 					</svg>
 				</div>
 			</div>
-			<section className='relative md:pt-24 pt-16 '>
+			<section className='relative md:pt-24 pt-16 mb-20 '>
 				<div className='container'>
 					<div className='grid grid-cols-1 items-center gap-[30px]'>
 						<div className='filters-group-wrap text-center'>

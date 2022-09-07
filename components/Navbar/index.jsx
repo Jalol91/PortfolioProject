@@ -30,7 +30,11 @@ const Navbar = () => {
 				<Link href={'/'}>
 					<a className='logo pl-0'>
 						<Image
-							src={router.asPath === '/' ? LogoDark : LogoLight}
+							src={
+								router.asPath === '/' || router.asPath.startsWith('/#')
+									? LogoDark
+									: LogoLight
+							}
 							className='inline-block '
 							alt=''
 						/>

@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const Hero = () => {
 	return (
 		<>
@@ -26,12 +28,11 @@ const Hero = () => {
 											years of experience.
 										</p>
 										<div className='mt-4'>
-											<a
-												href='#portfolio'
-												className='btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md'
-											>
-												Hire me
-											</a>
+											<Link href='/contacts#contact-form'>
+												<a className='btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md'>
+													Hire me
+												</a>
+											</Link>
 										</div>
 									</div>
 								</div>
@@ -39,12 +40,12 @@ const Hero = () => {
 								<div className='lg:col-span-4 lg:block hidden lg:order-2' />
 								<div className='lg:col-span-4 md:col-span-6 order-1 lg:order-3'>
 									<h4 className='lg:text-[64px] lg:leading-[1.1] text-[40px] font-bold lg:text-black lg:dark:text-white text-white mb-0'>
-										Sam <br />
-										A
+										Jalol <br />
+										R
 										<span
 											className='typewrite'
 											data-period={2000}
-											data-type='[ "bdullaev!"]'
+											data-type='[ "akhimov!"]'
 										/>
 									</h4>
 								</div>

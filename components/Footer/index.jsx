@@ -14,113 +14,12 @@ const Footer = () => {
 							</a>
 						</div>
 						<div className='text-center mt-6 md:mt-0'>
-							<p className='mb-0'>
-								© Techwind. Design with
-								<i className='mdi mdi-heart text-red-600' /> by
-								<a
-									href='https://shreethemes.in/'
-									target='_blank'
-									className='text-reset'>
-									Shreethemes
-								</a>
-								.
-							</p>
+							<p className='mb-0'>©Jalol Rakhimov</p>
 						</div>
-						<ul className='list-none md:text-right text-center mt-6 md:mt-0'>
-							<li className='inline'>
-								<a
-									href='https://1.envato.market/techwind'
-									target='_blank'
-									className='btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600'>
-									<i
-										className='uil uil-shopping-cart align-middle'
-										title='Buy Now'
-									/>
-								</a>
-							</li>
-							<li className='inline'>
-								<a
-									href='https://dribbble.com/shreethemes'
-									target='_blank'
-									className='btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600'>
-									<i
-										className='uil uil-dribbble align-middle'
-										title='dribbble'
-									/>
-								</a>
-							</li>
-							<li className='inline'>
-								<a
-									href='https://www.behance.net/shreethemes'
-									target='_blank'
-									className='btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600'>
-									<i className='uil uil-behance' title='Behance' />
-								</a>
-							</li>
-							<li className='inline'>
-								<a
-									href='http://linkedin.com/company/shreethemes'
-									target='_blank'
-									className='btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600'>
-									<i className='uil uil-linkedin' title='Linkedin' />
-								</a>
-							</li>
-							<li className='inline'>
-								<a
-									href='https://www.facebook.com/shreethemes'
-									target='_blank'
-									className='btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600'>
-									<i
-										className='uil uil-facebook-f align-middle'
-										title='facebook'
-									/>
-								</a>
-							</li>
-							<li className='inline'>
-								<a
-									href='https://www.instagram.com/shreethemes/'
-									target='_blank'
-									className='btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600'>
-									<i
-										className='uil uil-instagram align-middle'
-										title='instagram'
-									/>
-								</a>
-							</li>
-							<li className='inline'>
-								<a
-									href='https://twitter.com/shreethemes'
-									target='_blank'
-									className='btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600'>
-									<i className='uil uil-twitter align-middle' title='twitter' />
-								</a>
-							</li>
-							<li className='inline'>
-								<a
-									href='mailto:support@shreethemes.in'
-									className='btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600'>
-									<i className='uil uil-envelope align-middle' title='email' />
-								</a>
-							</li>
-							<li className='inline'>
-								<a
-									href='https://forms.gle/QkTueCikDGqJnbky9'
-									target='_blank'
-									className='btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600'>
-									<i
-										className='uil uil-file align-middle'
-										title='customization'
-									/>
-								</a>
-							</li>
-						</ul>
-						{/*end icon*/}
 					</div>
-					{/*end grid*/}
 				</div>
-				{/*end container*/}
 			</div>
 		</footer>
-	)
-}
-export default Footer
+	);
+};
+export default Footer;

@@ -1,25 +1,25 @@
-import { useState } from 'react'
+import { useState } from 'react';
 const ContactForm = () => {
 	const [value, setValue] = useState({
 		name: '',
 		email: '',
 		subject: '',
 		message: '',
-	})
+	});
 
 	const handleChange = (e) => {
 		setValue({
 			...value,
 			[e.target.name]: e.target.value,
-		})
-	}
+		});
+	};
 	const handleSubmit = (e) => {
-		e.preventDefault()
-		console.log(value)
-	}
+		e.preventDefault();
+		console.log(value);
+	};
 
 	return (
-		<div className='lg:col-span-5 md:col-span-6 mt-8 md:mt-0'>
+		<div id='contact-form' className='lg:col-span-5 md:col-span-6 mt-8 md:mt-0'>
 			<div className='lg:ml-5'>
 				<div className='bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-800 p-6'>
 					<h3 className='mb-6 text-2xl leading-normal font-medium'>
@@ -123,14 +123,15 @@ const ContactForm = () => {
 							type='submit'
 							id='submit'
 							name='send'
-							className='btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md justify-center flex items-center'>
+							className='btn bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md justify-center flex items-center'
+						>
 							Send Message
 						</button>
 					</form>
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default ContactForm
+export default ContactForm;
