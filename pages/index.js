@@ -5,7 +5,7 @@ import HireMe from 'containers/HireMe';
 import Portfolio from 'containers/Portfolio';
 import Services from 'containers/Services';
 import TechnologyList from 'containers/TechnologyList';
-import Blogs from '/containers/Blogs';
+import Certificates from '/containers/Certificates';
 
 export default function Home() {
 	return (
@@ -20,7 +20,7 @@ export default function Home() {
 			<HireMe />
 			<section className='relative md:py-24 py-16' id='portfolio'>
 				<Portfolio />
-				<Blogs />
+				<Certificates />
 			</section>
 		</>
 	);
